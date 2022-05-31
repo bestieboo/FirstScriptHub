@@ -1,0 +1,78 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Liden Exploits", "GrapeTheme")
+
+-- WELCOME
+local Welcome = Window:NewTab("Welcome")
+local WelcomeSection = Welcome:NewSection("Game Information")
+
+WelcomeSection:NewLabel("Game Detected: Currently not programmed")
+WelcomeSection:NewLabel("Game ID: " .. game.PlaceId)
+
+if game.PlaceId == 370731277 or game.PlaceId == 3272055484 then
+    WelcomeSection:NewLabel("Game Scripts available: true")
+
+    local Player = Window:NewTab("Player")
+    local PlayerSection = Player:NewSection("Player Ajustments")
+
+    PlayerSection:NewSlider("Walkspeed", "Ajusts Walkspeed", 500, 0, function(s)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+    end)
+
+    PlayerSection:NewSlider("JumpPower", "Ajusts JumpPower", 500, 0, function(s)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+    end)
+
+    local ExternalScripts = Window:NewTab("External Scripts")
+    local ExternalScriptsSection = ExternalScripts:NewSection("Fun")
+
+    local MeepCityFE = false
+    ExternalScriptsSection:NewButton("MeepCity FE", "Enables external script.", function()
+        if MeepCityFE == false then
+            MeepCityFE = true
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/synolope/meepcracked/main/loader.lua'))()
+        end
+    end)
+
+    local MeepCityFEsynolope = false
+    ExternalScriptsSection:NewButton("MeepCity Local", "Only works on KRNL and Synapse.", function()
+        if MeepCityFEsynolope == false then
+            MeepCityFEsynolope = true
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/synolope/mpcity/main/loader.lua",true))()
+        end
+    end)
+
+    local InfiniteYield = false
+    ExternalScriptsSection:NewButton("Infinite Yield", "Functions on everything!", function()
+        if InfiniteYield == false then
+            InfiniteYield = true
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+        end
+    end)
+elseif game.PlaceId == 718328620 then
+    WelcomeSection:NewLabel("Game Scripts available: true")
+
+    local Player = Window:NewTab("Player")
+    local PlayerSection = Player:NewSection("Player Ajustments")
+
+    PlayerSection:NewSlider("Walkspeed", "Ajusts Walkspeed", 500, 0, function(s)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = s
+    end)
+
+    PlayerSection:NewSlider("JumpPower", "Ajusts JumpPower", 500, 0, function(s)
+        game.Players.LocalPlayer.Character.Humanoid.JumpPower = s
+    end)
+
+    local ExternalScripts = Window:NewTab("External Scripts")
+    local ExternalScriptsSection = ExternalScripts:NewSection("Fun")
+
+    local InfiniteYield2 = false
+    ExternalScriptsSection:NewButton("Infinite Yield", "Functions on everything!", function()
+        if InfiniteYield2 == false then
+            InfiniteYield2 = true
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+        end
+    end)
+    
+else
+    WelcomeSection:NewLabel("Game Scripts available: false")
+end
